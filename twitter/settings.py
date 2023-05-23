@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7_3756fp78y8%)8b2m%bdm)^y5mj-fltyk0@j$mez8tnmt@&d='
+SECRET_KEY = 'i_8$e&=cfr5bd1r(@^@gd@2y@+0@i0%ldpeke108o+pux&hsn4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,16 +81,15 @@ WSGI_APPLICATION = 'twitter.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.mysql',
-'NAME': 'twitter',
-'HOST': '0.0.0.0',
-'PORT': '3306',
-'USER': 'root',
-'PASSWORD': 'yourpassword', # 这⾥是⾃⼰下载mysql时候输⼊两次的那个密码
- }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'twitter',
+        'HOST': '0.0.0.0',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': 'yourpassword',    # 这里是自己下载mysql时候输入两次的那个密码
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
